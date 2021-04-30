@@ -62,6 +62,7 @@ class LineItemTest < ActiveSupport::TestCase
     line_item.total = 4199.97
 
     assert line_item.save
+    assert_equal line_item.price, products(:mbp).price
     assert_equal line_item.total, line_item.quantity * line_item.price
   end
 end
