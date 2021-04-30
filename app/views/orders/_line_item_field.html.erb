@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-sm-4">
+    <div class="form-group">
+      <label>Product</label>
+      <%= line_item.select(:product_id, options_from_collection_for_select(products, 'id', 'name'), { include_blank: true }, { class: 'form-control', required: true }) %>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label>Quantity</label>
+      <%= line_item.number_field :quantity, class: 'form-control', placeholder: 'Enter Quantity', required: true %>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <br>
+    <%= line_item.remove_nested_fields_link '', class: 'btn btn-danger fa fa-minus', role: 'button' %>
+  </div>
+</div>
