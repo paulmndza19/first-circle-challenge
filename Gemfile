@@ -30,8 +30,11 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'jquery-rails'
-gem 'cocoon'
+gem 'bootstrap', '~> 4.3.1'
+gem 'font-awesome-rails'
+gem "jquery-rails"
+gem 'popper_js', '~> 1.14'
+gem 'nested_form_fields'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
