@@ -12,6 +12,6 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require jquery
-//= require cocoon
+//= require jquery3
 //= require_tree .
+//= require nested_form_fields
