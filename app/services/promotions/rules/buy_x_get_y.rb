@@ -1,12 +1,10 @@
 module Promotions
   module Rules
     class BuyXGetY
-      def initialize(promotion, line_item)
-        @promotion = promotion
+      def self.call(promotion, line_item)
         @line_item = line_item
-      end
+        @promotion = promotion
 
-      def call
         return unless eligible?
 
         quantity = @line_item.quantity
@@ -24,7 +22,7 @@ module Promotions
 
       private
 
-      def eligible?
+      def self.eligible?
         @line_item.quantity >= @promotion.buy
       end
     end
