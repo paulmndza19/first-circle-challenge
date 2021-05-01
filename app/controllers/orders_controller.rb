@@ -5,9 +5,11 @@ class OrdersController < ApplicationController
   end
 
   def create
-    create_order
-    create_line_items
-    compute_order_total
+    ActiveRecord::Base.transaction do
+      create_order
+      create_line_items
+      compute_order_total
+    end
 
     redirect_to @order, notice: 'Order was successfully created.'
   end
