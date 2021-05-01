@@ -1,6 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-ipad:
+ipd:
   sku: ipd
   name: Super iPad
   price: 549.99

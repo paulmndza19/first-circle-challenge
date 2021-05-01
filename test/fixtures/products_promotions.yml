@@ -6,7 +6,7 @@ buy_2_get_1:
   product: atv
   buy: 2
   get: 1
-  rule: 'Promotions::Rules::BuyXGetY'
+  promotion_rule: 'Promotions::Rules::BuyXGetY'
 
 bulk_price:
   name: Bulk Price for iPad
@@ -14,4 +14,14 @@ bulk_price:
   product: ipd
   minimum_bulk_quantity: 5
   bulk_price: 499.99
-  rule: 'Promotions::Rules::BulkPricing'
+  promotion_rule: 'Promotions::Rules::BulkPricing'
+
+freebies:
+  name: Bulk Price for iPad
+  description: If someone buys more then 4 iPads, the price will be $499.99 each
+  product: mbp
+  freebie_product: vga
+  freebie_quantity: 1
+  promotion_rule: 'Promotions::Rules::Freebies'
+
+
