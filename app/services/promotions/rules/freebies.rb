@@ -19,7 +19,7 @@ module Promotions
 
         freebies_line_item = LineItem.new
         freebies_line_item.product_id = freebie_product_id
-        freebies_line_item.quantity = quantity
+        freebies_line_item.quantity = freebie_quantity
         freebies_line_item.price = 0
         freebies_line_item.total = 0
         freebies_line_item.order = @line_item.order
