@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-4">
+    <h5> Line Items: </h5>
+  </div>
+</div>
+
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <td> Quantity </td>
+      <td> Product </td>
+      <td> Price </td>
+    </tr>
+  </thead>
+  <tbody>
+    <% line_items.each do |line_item| %>
+      <%
+        product = line_item.product
+        product_name = product.name
+      %>
+
+      <tr>
+        <td> <%= line_item.quantity %> </td>
+        <td> <%= product_name %> (<%= line_item.price %>)</td>
+        <td> <%= line_item.total %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -8,6 +8,12 @@ class OrdersController < ApplicationController
     create_order
     create_line_items
     compute_order_total
+
+    redirect_to @order, notice: 'Order was successfully created.'
+  end
+
+  def show
+    load_order
   end
 
   private
@@ -34,6 +40,10 @@ class OrdersController < ApplicationController
 
   def load_products
     @products ||= Product.all
+  end
+
+  def load_order
+    @order = Order.find(params[:id])
   end
 
   def order_params

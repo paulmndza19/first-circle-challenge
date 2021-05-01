@@ -47,7 +47,7 @@
                     </div>
                     <br>
                     <%= f.nested_fields_for :line_items do |line_item| %>
-                      <%= render partial: 'line_item_field', locals: { line_item: line_item, products: @products} %>
+                      <%= render partial: 'orders/new/line_item_field', locals: { line_item: line_item, products: @products} %>
                     <% end %>
                   </div>
                 </div>

@@ -1,0 +1,17 @@
+<%
+  line_items = order.line_items
+%>
+
+<div class='box-body'>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      Customer Name: <%= order.customer_name %>
+    </div>
+    <div class="col-md-4">
+      Customer Address: <%= order.customer_address %>
+    </div>
+  </div>
+  <hr/>
+  <%= render partial: 'orders/show/line_items', locals: { order: order, line_items: line_items } %>
+  <%= render partial: 'orders/show/total', locals: { order: order } %>
+</div>
