@@ -23,4 +23,12 @@ class ProductsPromotionTest < ActiveSupport::TestCase
 
     assert promotion.save
   end
+
+  test "should save promotion even without freebie product" do
+    promotion = ProductsPromotion.new
+    promotion.product = products(:atv)
+    promotion.name = 'Buy 2 Get 1'
+
+    assert promotion.save
+  end
 end
