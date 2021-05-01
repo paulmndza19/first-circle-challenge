@@ -9,7 +9,6 @@ module Promotions
 
         quantity = @line_item.quantity
 
-        minimum_bulk_quantity = @promotion.minimum_bulk_quantity
         bulk_price = @promotion.bulk_price
 
         total = bulk_price * quantity
