@@ -5,11 +5,27 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
-    @line_items = order_params[:line_items_attributes]
+    create_order
+    create_line_items
   end
 
   private
+
+  def create_order
+    @order = Order.new
+    @order.customer_name = order_params[:customer_name]
+    @order.customer_address = order_params[:customer_address]
+    @order.total_price = 0
+    @order.save
+  end
+
+  def create_line_items
+    @line_items = order_params[:line_items_attributes]
+
+    @line_items.each do |k, attributes|
+      LineItems::Create.call(@order, attributes)
+    end
+  end
 
   def load_products
     @products ||= Product.all
