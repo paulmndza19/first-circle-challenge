@@ -29,8 +29,7 @@ class OrdersController < ApplicationController
   end
 
   def compute_order_total
-    line_items = @order.line_items
-    Orders::ComputeTotal.call(line_items)
+    Orders::UpdateTotal.call(@order)
   end
 
   def load_products
