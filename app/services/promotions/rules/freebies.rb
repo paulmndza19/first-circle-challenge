@@ -5,10 +5,16 @@ module Promotions
         @promotion = promotion
         @line_item = line_item
 
+        return unless eligible?
+
         create_line_item
       end
 
       private
+
+      def self.eligible?
+        @line_item.product == @promotion.product
+      end
 
       def self.create_line_item
         quantity = @line_item.quantity
