@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+buy_2_get_1:
+  name: Buy 2 Get 1
+  description: Get 3 for the price of 2
+  product: atv
+  buy: 2
+  get: 1
+  rule: 'Promotions::Rules::BuyXGetY'
+
+bulk_price:
+  name: Bulk Price for iPad
+  description: If someone buys more then 4 iPads, the price will be $499.99 each
+  product: ipd
+  minimum_bulk_quantity: 5
+  bulk_price: 499.99
+  rule: 'Promotions::Rules::BulkPricing'

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+vga:
+  order: one
+  product: vga
+  quantity: 1
+  total: 30.00
+
+mbp:
+  order: two
+  product: mbp
+  quantity: 1
+  total: 139.99
