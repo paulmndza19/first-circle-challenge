@@ -26,8 +26,11 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
         }
       }
     }
-    assert_difference("Order.count") do
-      post orders_path, params: params
+
+    assert_difference("Order.count", 1) do
+      assert_difference("LineItem.count", 5) do
+        post orders_path, params: params
+      end
     end
 
     assert_redirected_to order_path(Order.last)
