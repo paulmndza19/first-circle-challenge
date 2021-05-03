@@ -21,7 +21,13 @@
     ```rails db:seed```
 6. Run the server\
     ```rails s```
-7. In your browser, Go to `localhost:3000`. You should see a form for creating orders
+7. In your browser, Go to `localhost:3000`. You should see a form for creating orders.
+8. Fill-in the input fields, customer name and customer address field are required.
+9. To add a line item, click the blue `+` button on the right.
+10. To remove a line item form click the red `-` button beside it.
+11. Click submit if you're done.
+
+After clicking submit, you should be redirected to a page where you can see the tally of your order.
 
 
 ### How to run tests
