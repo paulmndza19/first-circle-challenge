@@ -8,6 +8,7 @@ class OrdersController < ApplicationController
     ActiveRecord::Base.transaction do
       create_order
       create_line_items
+      apply_promotions
       compute_order_total
     end
 
@@ -38,7 +39,17 @@ class OrdersController < ApplicationController
   end
 
   def compute_order_total
+    @order.reload
     Orders::UpdateTotal.call(@order)
+  end
+
+  def apply_promotions
+    line_items = @order.line_items
+
+    line_items.each do |line_item|
+      product = line_item.product
+      LineItems::ComputePromotion.call(product, line_item)
+    end
   end
 
   def load_products

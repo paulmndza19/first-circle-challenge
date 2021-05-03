@@ -6,7 +6,6 @@ module LineItems
 
       set_product
       create_line_item
-      compute_for_promotion
 
       @line_item
     end
@@ -26,10 +25,6 @@ module LineItems
       @line_item.total = LineItems::ComputeTotal.call(@product, @line_item)
 
       @line_item.save
-    end
-
-    def self.compute_for_promotion
-      LineItems::ComputePromotion.call(@product, @line_item)
     end
   end
 end
