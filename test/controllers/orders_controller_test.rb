@@ -28,7 +28,7 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
     }
 
     assert_difference("Order.count", 1) do
-      assert_difference("LineItem.count", 5) do
+      assert_difference("LineItem.count", 4) do
         post orders_path, params: params
       end
     end

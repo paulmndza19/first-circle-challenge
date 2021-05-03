@@ -25,15 +25,14 @@ module Orders
       assert_selector '#customer-address', text: "Customer Address: #{@customer_address}"
 
       assert page.has_content? 'Apple TV (109.5)'
-      assert page.has_content? 'Apple TV (0.0)'
       assert page.has_content? 'MacBook Pro (1399.99)'
       assert page.has_content? 'VGA adapter (0.0)'
       assert page.has_content? 'Super iPad (499.99)'
-      assert page.has_content? '$7,028.42'
+      assert page.has_content? '$6,918.92'
 
       order = Order.last
 
-      assert_equal 7028.42.to_d, order.total_price
+      assert_equal 6918.92.to_d, order.total_price
     end
   end
 end
