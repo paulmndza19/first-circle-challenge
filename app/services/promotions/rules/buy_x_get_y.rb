@@ -7,7 +7,7 @@ module Promotions
 
         return unless eligible?
 
-        create_line_item
+        adjust_line_item
       end
 
       private
@@ -16,22 +16,24 @@ module Promotions
         @line_item.quantity >= @promotion.buy
       end
 
-      def self.create_line_item
+      def self.adjust_line_item
         quantity = @line_item.quantity
         buy = @promotion.buy
         get = @promotion.get
         product = @line_item.product
+        price = product.price
 
-        items_to_add = (quantity / buy) * get
+        divisor = buy + get
 
-        additional_line_item = LineItem.new
-        additional_line_item.product = product
-        additional_line_item.quantity = items_to_add
-        additional_line_item.price = 0
-        additional_line_item.total = 0
-        additional_line_item.order = @line_item.order
+        priced_items_quantity = quantity - (quantity/divisor)
+        free_items_quantity = priced_items_quantity / buy
+        total = priced_items_quantity * price
+        quantity = priced_items_quantity + free_items_quantity
 
-        additional_line_item.save
+        @line_item.quantity = quantity
+        @line_item.total = total
+
+        @line_item.save
       end
     end
   end
