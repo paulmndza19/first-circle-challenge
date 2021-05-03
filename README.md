@@ -16,7 +16,7 @@
     ```first-circle-challenge```
 4. Create database\
     ```rails db:create```\
-    ```rails db:migrate```\
+    ```rails db:migrate```
 5. Create initial data for products and promotions
     ```rails db:seed```
 6. Run the server\
