@@ -29,10 +29,11 @@ class OrdersController < ApplicationController
   end
 
   def create_line_items
-    line_items = order_params[:line_items_attributes]
+    line_item_params = order_params[:line_items_attributes]
+    line_items = LineItems::BuildParams.call(line_item_params)
 
-    line_items.each do |k, attributes|
-      LineItems::Create.call(@order, attributes)
+    line_items.each do |line_item|
+      LineItems::Create.call(@order, line_item)
     end
   end
 
